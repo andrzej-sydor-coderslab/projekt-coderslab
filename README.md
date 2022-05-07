@@ -26,3 +26,4 @@ Here are the following technologies used in the project:
 ---
 
 ### Thank you for looking at my app! ;)
+# Let-s-be-fit
