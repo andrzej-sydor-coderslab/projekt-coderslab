@@ -1,0 +1,127 @@
+
+<!DOCTYPE HTML>
+<html lang="eng" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Let's be fit!'</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8"/>
+    <meta name="keywords"
+          content="Fitness Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements"
+    />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- Meta tag Keywords -->
+
+    <!-- css files -->
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
+    <!-- Style-CSS -->
+    <link rel="stylesheet" href="css/fontawesome-all.css">
+    <!-- Font-Awesome-Icons-CSS -->
+    <!-- //css files -->
+
+    <!-- web-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Sigmar+One&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+          rel="stylesheet">
+    <!-- //web-fonts -->
+</head>
+
+<body>
+<!-- title -->
+<h1><strong>Let's be fit! </strong><br>Dashboard </h1>
+<!-- //title -->
+
+<!-- content -->
+
+<div style="float: left" class="sub-main-w1">
+    <label style="color: white">
+        <strong>Logged as:<br> <span style="font-weight: bold" th:text="${#authentication.getName()}"></span></strong>
+    </label>
+    <div class="form-style-agile">
+        <a th:href="@{/dashboard}">
+            <div style="text-align: center; width: 75%" class="button">Dashboard</div>
+        </a>
+        <a th:href="@{/weight}">
+            <div style="text-align: center; width: 75%" class="button">Add Today's Weight</div>
+        </a>
+        <a th:href="@{/weight/progress-chart}"><div style="text-align: center; width: 75%" class="button">Progress Chart</div></a>
+        <a th:href="@{/details}">
+            <div style="text-align: center; width: 75%" class="button">Calculation Data</div>
+        </a>
+        <a th:href="@{/plan}">
+            <div style="text-align: center; width: 75%" class="button">Your Plan</div>
+        </a>
+        <a th:href="@{/products}">
+            <div style="text-align: center; width: 75%" class="button">Products List</div>
+        </a>
+        <a th:href="@{/logout}">
+            <div style="text-align: center; width: 75%" class="button">Logout</div>
+        </a>
+    </div>
+</div>
+<div class="sub-main-w2">
+    <form>
+        <div>
+            <div style="font-weight: bold; font-size: 35px; color: white" th:text="'Welcome '+${firstName}+' '+${lastName}+'!'"></div><br>
+        </div>
+        <div style="color: white; text-align: center; width: 100%">
+            <div style="font-weight: bold">Your current weight [kg]:</div>
+            <div style="font-weight: bold; font-size: 35px; color: greenyellow" th:text="${lastWeight}"></div>
+        </div>
+        <div th:if="${weightChange == -500000}">
+            <div style="color: white; text-align: center; width: 100%">
+                <div style="font-weight: bold">You have gained [kg]:</div>
+                <div style="font-weight: bold; font-size: 35px; color: greenyellow" th:text="'Data missing'"></div>
+            </div>
+        </div>
+        <div th:if="${weightChange >= 0}">
+            <div th:include="fragments/dashboardGained :: dashboardGained"></div>
+        </div>
+        <div th:if="${weightChange < 0 && weightChange > -500000}">
+            <div th:include="fragments/dashboardLost :: dashboardLost"></div>
+        </div>
+        <div style="color: white; text-align: center; width: 100%">
+            <div style="font-weight: bold">Target weight [kg]:</div>
+            <div style="font-weight: bold; font-size: 35px; color: greenyellow" th:text="${targetWeight}"></div>
+        </div>
+        <div style="color: white; text-align: center; width: 100%">
+            <div style="font-weight: bold">Your target date:</div>
+            <div style="font-weight: bold; font-size: 35px; color: greenyellow" th:text="${targetDate}"></div>
+        </div>
+        <div style="color: white; text-align: center; width: 100%">
+            <div style="font-weight: bold">By loosing or gaining 0,5 kg per week (recommended) you will achieve your weight by:</div>
+            <div style="font-weight: bold; font-size: 35px; color: greenyellow" th:text="${forecastedDate}"></div>
+        </div>
+        <div style="color: white; text-align: center; width: 100%">
+            <div style="font-weight: bold">Calories per day (BMR) [kcal]:</div>
+            <div style="font-weight: bold; font-size: 35px; color: greenyellow" th:text="${bmr}"></div>
+        </div>
+        <!-- checkbox -->
+        <!-- //switch -->
+    </form>
+
+</div>
+
+<div class="clear"></div>
+<!-- //content -->
+
+<!-- copyright -->
+<div class="footer">
+    <h2>&copy; 2020 Let's be fit. All rights reserved | Design by
+        <a href="http://w3layouts.com">W3layouts</a>
+    </h2>
+</div>
+<!-- //copyright -->
+
+</body>
+
+</html>

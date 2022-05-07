@@ -1,0 +1,83 @@
+
+<!DOCTYPE HTML>
+<html lang="eng" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Let's be fit!'</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content="Fitness Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements"
+	/>
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- Meta tag Keywords -->
+
+	<!-- css files -->
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+	<!-- Style-CSS -->
+	<link rel="stylesheet" href="css/fontawesome-all.css">
+	<!-- Font-Awesome-Icons-CSS -->
+	<!-- //css files -->
+
+	<!-- web-fonts -->
+	<link href="//fonts.googleapis.com/css?family=Sigmar+One&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+	<!-- //web-fonts -->
+</head>
+
+<body>
+	<!-- title -->
+	<h1><strong>Let's be fit! </strong><br>Login Form </h1>
+	<!-- //title -->
+
+	<!-- content -->
+	<div class="sub-main-w3">
+		<form name="f" th:action="@{/index}" method="post">
+			<div style="color: white; text-align: left" th:if="${param.error}">
+				<p>Invalid username and password</p>
+			</div>
+			<div class="form-style-agile">
+				<label>
+					Username
+					<i class="fas fa-user"></i>
+				</label>
+				<input id="input1" type="text" class="name" name="login" placeholder="Username" required="" min="5"/>
+			</div>
+			<div class="form-style-agile">
+				<label>
+					Password
+					<i class="fas fa-unlock-alt"></i>
+				</label>
+				<input id="input2" type="password" class="password" name="password" placeholder="*********" required=""/>
+			</div>
+			<!-- checkbox -->
+			<!-- //switch -->
+			<div style="min-width:100%;display: block">
+				<input type="submit" value="Log In">
+				<a th:href="@{/register}"><div style="text-align: center; width: 93%" class="button">Register</div></a>
+			</div>
+		</form>
+
+	</div>
+	<div class="clear"></div>
+	<!-- //content -->
+
+	<!-- copyright -->
+	<div class="footer">
+		<h2>&copy; 2020 Let's be fit. All rights reserved | Design by
+			<a href="http://w3layouts.com">W3layouts</a>
+		</h2>
+	</div>
+	<!-- //copyright -->
+
+</body>
+
+</html>

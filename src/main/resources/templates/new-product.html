@@ -1,0 +1,102 @@
+
+<!DOCTYPE HTML>
+<html lang="eng" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Let's be fit!'</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Fitness Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements"
+    />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- Meta tag Keywords -->
+
+    <!-- css files -->
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <link rel="stylesheet" href="/css/fontawesome-all.css">
+    <!-- Font-Awesome-Icons-CSS -->
+    <!-- //css files -->
+
+    <!-- web-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Sigmar+One&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- //web-fonts -->
+</head>
+
+<body>
+<!-- title -->
+<h1><strong>Let's be fit! </strong><br>Add new product to the list</h1>
+<!-- //title -->
+
+<!-- content -->
+
+<div style="float: left" class="sub-main-w1">
+    <label style="color: white">
+        <strong>Logged as:<br> <span style="font-weight: bold" th:text ="${#authentication.getName()}"></span></strong>
+    </label>
+    <div class="form-style-agile">
+        <a th:href="@{/dashboard}"><div style="text-align: center; width: 75%" class="button">Dashboard</div></a>
+        <a th:href="@{/weight}">
+            <div style="text-align: center; width: 75%" class="button">Add Today's Weight</div>
+        </a>
+        <a th:href="@{/weight/progress-chart}"><div style="text-align: center; width: 75%" class="button">Progress Chart</div></a>
+        <a th:href="@{/details}"><div style="text-align: center; width: 75%" class="button">Calculation Data</div></a>
+        <a th:href="@{/plan}"><div style="text-align: center; width: 75%" class="button">Your Plan</div></a>
+        <a th:href="@{/products}"><div style="text-align: center; width: 75%" class="button">Products List</div></a>
+        <a th:href="@{/logout}"><div style="text-align: center; width: 75%" class="button">Logout</div></a>
+    </div>
+</div>
+<div class="sub-main-w2">
+    <form th:object="${product}" method="post" th:action="@{/products/add}">
+        <div class="form-style-agile">
+            <div style="color: white; text-align: center"></div>
+            <label style="font-weight: bold">
+                Product Name
+                <i class="fas fa-tag"></i>
+            </label>
+            <input th:field="*{name}" placeholder="Product name" type="text" required="" min="2" max="255">
+        </div>
+        <div class="form-style-agile">
+            <div style="color: white; text-align: center"></div>
+            <label style="font-weight: bold">
+                Number of calories in 100g / 100 ml
+                <i class="fas fa-bolt"></i>
+            </label>
+            <input th:field="*{calories}" placeholder="0" type="number" required="" min="1">
+        </div>
+
+        <!-- checkbox -->
+        <!-- //switch -->
+        <div style="min-width:100%;">
+
+            <input type="submit" value="Add Product">
+
+        </div>
+    </form>
+
+</div>
+
+<div class="clear"></div>
+<!-- //content -->
+
+<!-- copyright -->
+<div class="footer">
+    <h2>&copy; 2020 Let's be fit. All rights reserved | Design by
+        <a href="http://w3layouts.com">W3layouts</a>
+    </h2>
+</div>
+<!-- //copyright -->
+
+</body>
+
+</html>
